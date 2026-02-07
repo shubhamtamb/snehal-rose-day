@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day Snehal 🌹</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: linear-gradient(120deg,#ff4e50,#f9d423);
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+}
+
+/* Floating roses */
+.rose-bg span{
+  position:absolute;
+  bottom:-60px;
+  font-size:22px;
+  animation: floatUp linear infinite;
+  opacity:0.85;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0) rotate(0deg);}
+  to{transform:translateY(-120vh) rotate(360deg);}
+}
+
+/* Main card */
+.card{
+  width:90%;
+  max-width:360px;
+  background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(16px);
+  border-radius:26px;
+  padding:28px 24px;
+  text-align:center;
+  box-shadow:0 25px 45px rgba(0,0,0,0.35);
+  animation: pop 1.2s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(0.85);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+h1{
+  font-size:25px;
+  font-weight:600;
+}
+
+.name{
+  margin-top:6px;
+  font-size:21px;
+  font-weight:400;
+}
+
+.big-rose{
+  font-size:68px;
+  margin:18px 0;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.12);}
+}
+
+.shayari{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:20px;
+  opacity:0.95;
+}
+
+button{
+  border:none;
+  background:#fff;
+  color:#ff4e50;
+  padding:12px 26px;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.06);
+  background:#ffecec;
+}
+
+.hidden{
+  display:none;
+  margin-top:18px;
+  font-size:14px;
+  animation: fade 1s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(12px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.option{
+  margin-top:10px;
+  padding:10px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.25);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.option:hover{
+  background:rgba(255,255,255,0.4);
+}
+
+.footer{
+  margin-top:14px;
+  font-size:12px;
+  opacity:0.75;
+}
+</style>
+</head>
+
+<body>
+
+<div class="rose-bg" id="roseBg"></div>
+
+<div class="card">
+  <h1>Happy Rose Day 🌹</h1>
+  <div class="name">Snehal Salunkhe</div>
+
+  <div class="big-rose">🌹</div>
+
+  <div class="shayari">
+    प्रत्येक नात्याला नाव द्यावं असं नाही,<br>
+    काही माणसं आयुष्यात असणं<br>
+    हेच खूप छान असतं.<br><br>
+
+    <b>Snehal</b>, हा गुलाब फक्त इतकंच सांगतो —<br>
+    तुझी उपस्थिती हलकीशी,<br>
+    पण मनाला चांगली वाटणारी आहे 🌹
+  </div>
+
+  <button onclick="showExperience()">click here  💛</button>
+
+  <div class="hidden" id="experience">
+    <div style="margin-bottom:10px;">
+      हा गुलाब पाहून कदाचित असं वाटलं असेल —
+    </div>
+
+    <div class="option" onclick="finalMessage(1)">
+      😊 छान वाटलं
+    </div>
+
+    <div class="option" onclick="finalMessage(2)">
+      🌸 दिवस थोडा हलका झाला
+    </div>
+
+    <div class="option" onclick="finalMessage(3)">
+      😌 साधं पण सुंदर
+    </div>
+  </div>
+
+  <div class="hidden" id="final"></div>
+
+  <div class="footer">
+    मैत्रीच्या भावनेतून 🌿
+  </div>
+</div>
+
+<script>
+/* Floating roses */
+const roseBg = document.getElementById("roseBg");
+for(let i=0;i<18;i++){
+  let r = document.createElement("span");
+  r.innerHTML="🌹";
+  r.style.left = Math.random()*100 + "vw";
+  r.style.animationDuration = (6 + Math.random()*6) + "s";
+  r.style.fontSize = (16 + Math.random()*22) + "px";
+  roseBg.appendChild(r);
+}
+
+/* Experience flow */
+function showExperience(){
+  document.getElementById("experience").style.display="block";
+}
+
+function finalMessage(type){
+  const final = document.getElementById("final");
+  let text = "";
+
+  if(type === 1){
+    text = "मग गुलाबाचं काम झालं 😊<br>छान वाटणं हीच खरी भेट आहे.";
+  } 
+  else if(type === 2){
+    text = "कधी कधी छोट्या गोष्टीही<br>दिवस चांगला करून जातात 🌸";
+  } 
+  else {
+    text = "साधेपणातच खरी सुंदरता असते 😌<br>आजचा दिवस छान जावो.";
+  }
+
+  final.innerHTML = text;
+  final.style.display = "block";
+}
+</script>
+
+</body>
+</html>
